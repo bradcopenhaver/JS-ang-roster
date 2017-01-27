@@ -12,4 +12,7 @@ export class ClanService {
   getClans() {
     return this.clans;
   }
+  getClanById(clanId) {
+    return this.af.database.object('/clans/' + clanId);
+  }
 }
