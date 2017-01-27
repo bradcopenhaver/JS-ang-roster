@@ -7,7 +7,8 @@ import {ClanService} from '../clan.service';
 @Component({
   selector: 'app-clan-detail',
   templateUrl: './clan-detail.component.html',
-  styleUrls: ['./clan-detail.component.css']
+  styleUrls: ['./clan-detail.component.css'],
+  providers: [ClanService]
 })
 export class ClanDetailComponent implements OnInit {
   clanId: string;
@@ -18,8 +19,10 @@ export class ClanDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.forEach((urlParameters) => {this.clanId = urlParameters['id']});
-    this.clanToDisplay = this.clanService.getClanById(this.clanId);
+    this.route.params.forEach((urlParameters) => {
+      this.clanId = urlParameters['id'];
+    });
+    this.clanService.getClanById(this.clanId).subscribe(clan => {this.clanToDisplay = clan});
   }
 
 }

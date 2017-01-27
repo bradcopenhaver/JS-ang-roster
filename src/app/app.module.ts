@@ -9,6 +9,8 @@ import {routing} from './app.routing';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ClanDetailComponent } from './clan-detail/clan-detail.component';
+import { MemberListComponent } from './member-list/member-list.component';
+import { AdminComponent } from './admin/admin.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -20,7 +22,9 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     WelcomeComponent,
-    ClanDetailComponent
+    ClanDetailComponent,
+    MemberListComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

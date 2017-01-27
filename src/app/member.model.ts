@@ -1,4 +1,4 @@
 export class Member {
 
-  constructor(public name: string, public team: string, public position: string){}
+  constructor(public name: string, public clan: string, public squad: string, public position: string){}
 }
