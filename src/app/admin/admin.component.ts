@@ -26,8 +26,8 @@ export class AdminComponent implements OnInit {
   updatePositionOptions(selectedSquad){
     this.currentSquad = selectedSquad;
   }
-  createClan(newName: string) {
-    var newClan = new Clan(newName);
+  createClan(newName: string, newMotto: string) {
+    var newClan = new Clan(newName, newMotto);
     this.clanService.createClan(newClan);
   }
   createMember(name: string, clan: string, squad: string, position: string) {

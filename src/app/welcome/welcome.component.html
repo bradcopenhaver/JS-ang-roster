@@ -1,4 +1,7 @@
 <h3>List of Clans</h3>
 <div *ngFor='let clan of clans | async'>
   <h4 (click)="goToDetail(clan)">{{clan.name}}</h4>
+  <div *ngIf="currentRoute === '/admin'">
+    <app-edit-clan [currentClan]='clan'></app-edit-clan>
+  </div>
 </div>

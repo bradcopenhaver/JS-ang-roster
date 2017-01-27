@@ -3,7 +3,9 @@
     <h3>Create New Clan</h3>
     <label>Clan Name:</label>
     <input required #newClanName>
-    <button type="submit" (click)="createClan(newClanName.value)">Create Clan</button>
+    <label>Clan Motto:</label>
+    <input required #newClanMotto>
+    <button type="submit" (click)="createClan(newClanName.value, newClanMotto.value)">Create Clan</button>
   </form>
 </div>
 <div>
@@ -43,3 +45,5 @@
     <button type="submit" (click)="createMember(newMemberName.value, newMemberClan.value, newMemberSquad.value, newMemberPosition.value); newMemberName.value = ''; newMemberClan.value=''; newMemberSquad.value=''; newMemberPosition.value='';">Create Member</button>
   </form>
 </div>
+
+<app-welcome></app-welcome>

@@ -1,3 +1,10 @@
-<p>
-  edit-clan works!
-</p>
+<button *ngIf="showEditForm === 'hidden'" (click)=showForm()>Edit</button>
+<div [class]="showEditForm">
+  <h4>Update Clan Info</h4>
+  <label>Clan Name:</label>
+  <input [(ngModel)]="currentClan.name">
+  <label>Clan Motto:</label>
+  <input [(ngModel)]="currentClan.motto">
+  <button (click)=deleteClan(currentClan)>Delete Clan</button>
+  <button (click)=doneEditting(currentClan)>Done</button>
+</div>

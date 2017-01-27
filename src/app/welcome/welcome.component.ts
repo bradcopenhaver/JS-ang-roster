@@ -13,6 +13,8 @@ import {Router} from '@angular/router';
 
 export class WelcomeComponent implements OnInit {
   clans: FirebaseListObservable<any[]>;
+  currentRoute: string = this.router.url;
+
   constructor(private clanService: ClanService, private router: Router) { }
 
   ngOnInit() {

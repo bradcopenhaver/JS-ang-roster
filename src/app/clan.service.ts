@@ -19,7 +19,15 @@ export class ClanService {
     this.clanList.push(newClan);
   }
   deleteClan(clanToDelete) {
-    var clanInFirebase = this.getClanById(clanToDelete.$key);
-    clanInFirebase.remove();
+    if(confirm("Delete this clan? Member profiles will remain.")){
+      var clanInFirebase = this.getClanById(clanToDelete.$key);
+      clanInFirebase.remove();
+    }
+  }
+  updateClan(localUpdatedClan) {
+    var clanInFirebase = this.getClanById(localUpdatedClan.$key);
+    clanInFirebase.update({ name: localUpdatedClan.name,
+                            motto: localUpdatedClan.motto});
+
   }
 }

@@ -24,8 +24,9 @@ export class MemberListComponent implements OnInit {
 
   ngAfterViewChecked() {
     this.test3 = this.clanFilter;
-    if (this.clanFilter){
+    if (this.clanFilter && this.test3){
       this.members = this.memberService.getMembersByClan(this.clanFilter);
+      this.test3
     }
     console.log(this.test1 + " " + this.test2 + " " + this.test3 + " " + this.members);
   }
