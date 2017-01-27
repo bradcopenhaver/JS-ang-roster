@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import {Member} from '../member.model';
 import {MemberService} from '../member.service';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-member-list',
@@ -11,23 +11,19 @@ import {Router} from '@angular/router';
   providers: [MemberService]
 })
 export class MemberListComponent implements OnInit {
-  @Input() clanFilter;
-  test1 = this.clanFilter;
-  test2;
-  test3;
   members: FirebaseListObservable<any[]>;
-  constructor(private memberService: MemberService) { }
+  clanId: string;
+
+  constructor(private memberService: MemberService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.test2 = this.clanFilter;
+    this.route.params.forEach((urlParameters) => {
+      this.clanId = urlParameters['id'];
+    });
+    this.members = this.memberService.getMembersByClan(this.clanId);
   }
 
   ngAfterViewChecked() {
-    this.test3 = this.clanFilter;
-    if (this.clanFilter && this.test3){
-      this.members = this.memberService.getMembersByClan(this.clanFilter);
-      this.test3
-    }
-    console.log(this.test1 + " " + this.test2 + " " + this.test3 + " " + this.members);
+
   }
 }

@@ -14,17 +14,13 @@ export class MemberService {
     return this.memberList;
   }
 
-  getMembersByClan(clanName) {
-    // console.log(clanName);
-    if (clanName != null){
-      this.clanMemberList = this.af.database.list('members', {
-        query: {
-          orderByChild: 'clan',
-          equalTo: clanName.name
-        }
-      });
-      return this.clanMemberList;
-    }
+  getMembersByClan(clanKey) {
+    return this.af.database.list('members', {
+      query: {
+        orderByChild: 'clanId',
+        equalTo: clanKey
+      }
+    });    
   }
 
   createMember(newMember) {
