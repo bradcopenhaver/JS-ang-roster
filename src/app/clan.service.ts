@@ -15,4 +15,11 @@ export class ClanService {
   getClanById(clanId) {
     return this.af.database.object('/clans/' + clanId);
   }
+  createClan(newClan) {
+    this.clanList.push(newClan);
+  }
+  deleteClan(clanToDelete) {
+    var clanInFirebase = this.getClanById(clanToDelete.$key);
+    clanInFirebase.remove();
+  }
 }

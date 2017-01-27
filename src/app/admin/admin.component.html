@@ -1,5 +1,45 @@
 <div>
-  <h3>Create New Clan</h3>
-  <label>Clan Name:</label>
-  <input #newClanName>
+  <form >
+    <h3>Create New Clan</h3>
+    <label>Clan Name:</label>
+    <input required #newClanName>
+    <button type="submit" (click)="createClan(newClanName.value)">Create Clan</button>
+  </form>
+</div>
+<div>
+  <h3>Create New Member</h3>
+  <form>
+    <label>Member Name:</label>
+    <input required #newMemberName>
+    <label>Clan:</label>
+    <select required #newMemberClan>
+      <option *ngFor='let clan of clans | async'>{{clan.name}}</option>
+    </select>
+    <label>Squad</label>
+    <select #newMemberSquad (change)="updatePositionOptions($event.target.value)">
+      <option selected> </option>
+      <option>Assault</option>
+      <option>Backup</option>
+      <option>Containment</option>
+      <option>Defense</option>
+      <option>Ops</option>
+    </select>
+    <label>Position</label>
+    <select #newMemberPosition>
+      <option selected> </option>
+      <option *ngIf="currentSquad === 'Assault'">Base Clear</option>
+      <option *ngIf="currentSquad === 'Assault'">Body Guard</option>
+      <option *ngIf="currentSquad === 'Assault'">Assassin</option>
+      <option *ngIf="currentSquad === 'Backup'">Driver</option>
+      <option *ngIf="currentSquad === 'Backup'">Gunner</option>
+      <option *ngIf="currentSquad === 'Containment'">Anchor</option>
+      <option *ngIf="currentSquad === 'Containment'">Support</option>
+      <option *ngIf="currentSquad === 'Containment'">Flank</option>
+      <option *ngIf="currentSquad === 'Defense'">Sentinel</option>
+      <option *ngIf="currentSquad === 'Defense'">Ranger</option>
+      <option *ngIf="currentSquad === 'Ops'">Boss Slayer</option>
+      <option *ngIf="currentSquad === 'Ops'">Time Keeper</option>
+    </select>
+    <button type="submit" (click)="createMember(newMemberName.value, newMemberClan.value, newMemberSquad.value, newMemberPosition.value); newMemberName.value = ''; newMemberClan.value=''; newMemberSquad.value=''; newMemberPosition.value='';">Create Member</button>
+  </form>
 </div>

@@ -24,5 +24,4 @@ export class ClanDetailComponent implements OnInit {
     });
     this.clanService.getClanById(this.clanId).subscribe(clan => {this.clanToDisplay = clan});
   }
-
 }

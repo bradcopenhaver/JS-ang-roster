@@ -11,11 +11,22 @@ import {Router} from '@angular/router';
   providers: [MemberService]
 })
 export class MemberListComponent implements OnInit {
-  @Input() clanFilter: string = "";
+  @Input() clanFilter;
+  test1 = this.clanFilter;
+  test2;
+  test3;
   members: FirebaseListObservable<any[]>;
   constructor(private memberService: MemberService) { }
 
   ngOnInit() {
+    this.test2 = this.clanFilter;
   }
 
+  ngAfterViewChecked() {
+    this.test3 = this.clanFilter;
+    if (this.clanFilter){
+      this.members = this.memberService.getMembersByClan(this.clanFilter);
+    }
+    console.log(this.test1 + " " + this.test2 + " " + this.test3 + " " + this.members);
+  }
 }

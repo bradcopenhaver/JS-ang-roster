@@ -4,9 +4,10 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 @Injectable()
 export class MemberService {
   memberList: FirebaseListObservable<any[]>;
+  clanMemberList: FirebaseListObservable<any[]>;
 
   constructor(private af: AngularFire) {
-    this.memberList = af.database.list('member');
+    this.memberList = af.database.list('members');
   }
 
   getAllMembers() {
@@ -14,17 +15,19 @@ export class MemberService {
   }
 
   getMembersByClan(clanName) {
-    console.log(clanName);
-    // while (clanName = ""){
-    //   console.log(clanName);
-    // }
-    // if (clanName != null){
-      return this.af.database.list('members', {
+    // console.log(clanName);
+    if (clanName != null){
+      this.clanMemberList = this.af.database.list('members', {
         query: {
           orderByChild: 'clan',
-          equalTo: clanName
+          equalTo: clanName.name
         }
       });
-    // }
+      return this.clanMemberList;
+    }
+  }
+
+  createMember(newMember) {
+    this.memberList.push(newMember);
   }
 }
