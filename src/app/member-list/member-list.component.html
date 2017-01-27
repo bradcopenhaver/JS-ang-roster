@@ -1,2 +1,11 @@
 <h3>{{(clanFilter)?.name}} Clan Members</h3>
-<div *ngFor='let member of members | async'>{{member.name}}</div>
+<label>Filter members by squad:</label>
+<select (change)="updateFilter($event.target.value)">
+  <option selected value="">No Filter</option>
+  <option>Assault</option>
+  <option>Backup</option>
+  <option>Containment</option>
+  <option>Defense</option>
+  <option>Ops</option>
+</select>
+<div *ngFor='let member of members | async | squadFilter:squadFilterValue'>{{member.name}}</div>

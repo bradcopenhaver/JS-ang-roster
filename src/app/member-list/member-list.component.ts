@@ -13,6 +13,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 export class MemberListComponent implements OnInit {
   members: FirebaseListObservable<any[]>;
   clanId: string;
+  squadFilterValue: string = "";
 
   constructor(private memberService: MemberService, private route: ActivatedRoute) { }
 
@@ -23,7 +24,7 @@ export class MemberListComponent implements OnInit {
     this.members = this.memberService.getMembersByClan(this.clanId);
   }
 
-  ngAfterViewChecked() {
-
+  updateFilter(filterValue) {
+    this.squadFilterValue = filterValue;
   }
 }

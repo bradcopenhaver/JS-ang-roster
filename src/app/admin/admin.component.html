@@ -15,7 +15,7 @@
     <input required #newMemberName>
     <label>Clan:</label>
     <select required #newMemberClan>
-      <option *ngFor='let clan of clans | async'>{{clan.name}}</option>
+      <option *ngFor='let clan of clans | async' value={{clan.$key}}>{{clan.name}}</option>
     </select>
     <label>Squad</label>
     <select #newMemberSquad (change)="updatePositionOptions($event.target.value)">
