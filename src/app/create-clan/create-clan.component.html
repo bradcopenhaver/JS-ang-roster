@@ -1,0 +1,10 @@
+<div>
+  <form >
+    <h3>Create New Clan</h3>
+    <label>Clan Name:</label>
+    <input required #newClanName>
+    <label>Clan Motto:</label>
+    <input required #newClanMotto>
+    <button type="submit" (click)="createClan(newClanName.value, newClanMotto.value)">Create Clan</button>
+  </form>
+</div>

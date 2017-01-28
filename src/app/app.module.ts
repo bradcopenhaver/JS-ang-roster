@@ -13,6 +13,8 @@ import { MemberListComponent } from './member-list/member-list.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditClanComponent } from './edit-clan/edit-clan.component';
 import { SquadFilterPipe } from './squad-filter.pipe';
+import { CreateClanComponent } from './create-clan/create-clan.component';
+import { CreateMemberComponent } from './create-member/create-member.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -28,7 +30,9 @@ export const firebaseConfig = {
     MemberListComponent,
     AdminComponent,
     EditClanComponent,
-    SquadFilterPipe
+    SquadFilterPipe,
+    CreateClanComponent,
+    CreateMemberComponent
   ],
   imports: [
     BrowserModule,
