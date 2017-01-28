@@ -62,3 +62,16 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Further help
 
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Future Version Features
+
+* Clean up visual style.
+* Add more info to Member entries.
+* Member detail pages.
+* Authentication
+
+### License
+
+This project is licensed under the MIT license.
+
+Copyright (c) 2017 **Brad Copenhaver**
